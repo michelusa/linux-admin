@@ -1,0 +1,26 @@
+some notes on setting up a disk on linux with btrfs
+
+find info on the disk:  sudo lshw -class disk -short
+
+find info on the file systems supported: cat /proc/filesystems | grep -v nodev
+
+#using large disk (  > 2 TB)
+sudo parted /dev/sdc
+
+#change unit
+unit gb
+
+#recipe ;)
+mklabel gpt
+mkpart
+name?  data
+fs type?  btrfs
+start? 1
+end? 8192
+quit
+
+#create the fs
+sudo mkfs -t btrfs /dev/sdc1
+
+#mount (adding -o noatime is optional)
+sudo mount /dev/sdc1 /thedata/ -o noatime
