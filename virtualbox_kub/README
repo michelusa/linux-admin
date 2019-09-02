@@ -1,0 +1,18 @@
+finding the virtualbox module:
+modinfo -n vboxdrv
+
+example output: /lib/modules/5.0.0-27-generic/misc/vboxdrv.ko
+
+signing virtualbox module (ubuntu 19.04)
+/usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 MOK.priv MOK.der     /lib/modules/5.0.0-27-generic/misc/vboxdrv.ko
+
+try start virtualbox:
+virtualbox (must be no kernel module warnings)
+
+try start minikube:
+$ minikube start   #this takes some time
+#then:
+$ kubectl config get-contexts
+#which should output like
+#CURRENT   NAME       CLUSTER    AUTHINFO   NAMESPACE
+#*         minikube   minikube   minikube   
