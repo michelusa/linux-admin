@@ -1,0 +1,5 @@
+some misc notes:
+
+Needing libjson-c3 for an application while runnning under ubuntu 19.04,
+  1) download the library from https://packages.ubuntu.com/disco/amd64/libjson-c3/download
+  2) install using: udo apt install ./libjson-c3_0.12.1+ds-2_amd64.deb
