@@ -1,3 +1,5 @@
+## k8 require supervisor (ie virtualbox)
+
 finding the virtualbox module:
 modinfo -n vboxdrv
 
@@ -9,10 +11,13 @@ signing virtualbox module (ubuntu 19.04)
 try start virtualbox:
 virtualbox (must be no kernel module warnings)
 
+
+## now try k8
+
 try start minikube:
 $ minikube start   #this takes some time
 #then:
 $ kubectl config get-contexts
 #which should output like
 #CURRENT   NAME       CLUSTER    AUTHINFO   NAMESPACE
-#*         minikube   minikube   minikube   
+#*         minikube   minikube   minikube
